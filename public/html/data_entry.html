@@ -38,19 +38,19 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Team #</span>
       </div>
-      <input type="number" class="form-control" placeholder="Number...">
+      <input id="team-number" type="number" class="form-control" placeholder="Number...">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Match #</span>
       </div>
-      <input type="number" class="form-control" placeholder="Number...">
+      <input id="match-number" type="number" class="form-control" placeholder="Number...">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Scouter</span>
       </div>
-      <input type="text" class="form-control" placeholder="Name...">
+      <input id="scouter" type="text" class="form-control" placeholder="Name...">
     </div>
 
     <h5>
@@ -58,13 +58,13 @@
     </h5>
     <div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
       <label class="btn btn-outline-secondary active">
-        <input type="radio" name="startingpos" id="option1" autocomplete="off" checked>&nbsp;&nbsp;Left&nbsp;&nbsp;
+        <input type="radio" name="startingpos" id="option1" autocomplete="off" value="left" checked>&nbsp;&nbsp;Left&nbsp;&nbsp;
       </label>
       <label class="btn btn-outline-secondary">
-        <input type="radio" name="startingpos" id="option2" autocomplete="off">Center
+        <input type="radio" name="startingpos" id="option2" autocomplete="off" value="center">Center
       </label>
       <label class="btn btn-outline-secondary">
-        <input type="radio" name="startingpos" id="option3" autocomplete="off">&nbsp;Right&nbsp;
+        <input type="radio" name="startingpos" id="option3" autocomplete="off" value="right">&nbsp;Right&nbsp;
       </label>
     </div>
 
@@ -248,9 +248,11 @@
 
     <br>
 
-    <button class="btn btn-block btn-primary">Submit</button>
+    <button class="btn btn-block btn-primary" onclick="submitData()">Submit</button>
 
     <br>
+
+    <div id="uploading"></div>
 
   </div>
   

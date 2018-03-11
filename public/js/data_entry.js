@@ -1,85 +1,21 @@
-const db = firebase.database().ref('allteams/');
+$(document).ready(function() {
+    
+    const db = firebase.database().ref('allteams/');
 
-var team = 0;
+});
 
-var matchNumber = 0;
-var valKey = [];
-
-// var counter = 0;
-function enterTeam() {
-
-    const teamText = document.getElementById('team-header');
-    team = document.getElementById('team').value;
-    teamText.innerText = "Current team: " + team;
-
-    const matchnumberText = document.getElementById('matchnumber-header');
-    matchnumberText.innerText = "Match number: " + document.getElementById('matchnumber').value;
-
-    document.getElementById('team-input').style.display = "none";
-    document.getElementById('content-input').style.display = "";
-
-    db.child(team + '/match-count').once('value').then(function(snap) {
-        if (snap.val() != null) {
-            matchNumber = snap.val() + 1;
-        } else {
-            matchNumber = 1;
-        }
-    });
-
-}
 
 function submitData() {
 
-    document.getElementById('content-input').style.display = "none";
-    document.getElementById('uploading-wait').style.display = "";
-
-    if (team == 0 || team == null || team == "") {
-        console.log("Team is null.");
-        failDataUpload('matchdata-loading', "Match data upload failed.");
-        failDataUpload('matchinfo-loading', "Match data upload failed.");
-        return;
-    }
-
-    db.child(team + '/match-count').once('value').then(function(snap) {
-
-        if (snap.val() != null) {
-            matchNumber = snap.val() + 1;
-        } else {
-            matchNumber = 1;
-        }
-        updateDatabase();
-
-    });
+    
 
 }
 
-function finishReset() {
-    window.location.reload(false);
+function inputVerification() {
+    
 }
 
-function failDataUpload(id, message) {
 
-    const dataAlert = document.getElementById(id);
-    dataAlert.setAttribute("class", "alert alert-danger");
-    dataAlert.innerText = message;
-
-    const icon = document.createElement('span');
-    icon.setAttribute("class", "glyphicon glyphicon-remove pull-right");
-    dataAlert.appendChild(icon);
-
-}
-
-function successDataUpload(id, message) {
-
-    const dataAlert = document.getElementById(id);
-    dataAlert.setAttribute("class", "alert alert-success");
-    dataAlert.innerText = message;
-
-    const icon = document.createElement('span');
-    icon.setAttribute("class", "glyphicon glyphicon-ok pull-right");
-    dataAlert.appendChild(icon);
-
-}
 
 function updateDatabase() {
 
