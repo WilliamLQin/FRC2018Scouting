@@ -57,20 +57,200 @@
       Starting Position:
     </h5>
     <div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary active">
+      <label class="btn btn-outline-secondary active">
         <input type="radio" name="startingpos" id="option1" autocomplete="off" checked>&nbsp;&nbsp;Left&nbsp;&nbsp;
       </label>
-      <label class="btn btn-secondary">
+      <label class="btn btn-outline-secondary">
         <input type="radio" name="startingpos" id="option2" autocomplete="off">Center
       </label>
-      <label class="btn btn-secondary">
+      <label class="btn btn-outline-secondary">
         <input type="radio" name="startingpos" id="option3" autocomplete="off">&nbsp;Right&nbsp;
       </label>
     </div>
 
     <br>
     
+    <h5>
+      Plate Assignments:
+    </h5>
+    <div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Plate 1</span>
+      </div>
+      <label class="btn btn-outline-secondary active">
+        <input type="radio" name="plate1" id="option1" autocomplete="off" checked>&nbsp;&nbsp;Left&nbsp;&nbsp;
+      </label>
+      <label class="btn btn-outline-secondary">
+        <input type="radio" name="plate1" id="option2" autocomplete="off">&nbsp;Right&nbsp;
+      </label>
+    </div>
+    <br>
+    <div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Plate 2</span>
+      </div>
+      <label class="btn btn-outline-secondary active">
+        <input type="radio" name="plate2" id="option1" autocomplete="off" checked>&nbsp;&nbsp;Left&nbsp;&nbsp;
+      </label>
+      <label class="btn btn-outline-secondary">
+        <input type="radio" name="plate2" id="option2" autocomplete="off">&nbsp;Right&nbsp;
+      </label>
+    </div>
+    <br>
+    <div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Plate 3</span>
+      </div>
+      <label class="btn btn-outline-secondary active">
+        <input type="radio" name="plate3" id="option1" autocomplete="off" checked>&nbsp;&nbsp;Left&nbsp;&nbsp;
+      </label>
+      <label class="btn btn-outline-secondary">
+        <input type="radio" name="plate3" id="option2" autocomplete="off">&nbsp;Right&nbsp;
+      </label>
+    </div>
 
+    <br>
+    
+    <h5>
+      Autonomous:
+    </h5>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Switch Scored</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Switch Missed</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Scale Scored</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Scale Missed</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+
+    <div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Reachline</span>
+      </div>
+      <label class="btn btn-outline-secondary active">
+        <input type="radio" name="reachline" id="option1" autocomplete="off" checked>&nbsp;Yes&nbsp;
+      </label>
+      <label class="btn btn-outline-secondary">
+        <input type="radio" name="reachline" id="option2" autocomplete="off">&nbsp;No&nbsp;
+      </label>
+    </div>
+
+    <br>
+
+    <h5>
+      Teleoperated:
+    </h5>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Alliance Switch Scored</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Alliance Switch Missed</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Scale Scored</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Scale Missed</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Opp. Switch Scored</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Opp. Switch Missed</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Vault</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Number...">
+    </div>
+
+    <br>
+
+    <h5>
+      Climb:
+    </h5>
+    <div class="custom-control custom-radio">
+      <input type="radio" id="climb-1" name="climb" class="custom-control-input">
+      <label class="custom-control-label" for="climb-1">Self Climb</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" id="climb-2" name="climb" class="custom-control-input">
+      <label class="custom-control-label" for="climb-2">Failed Climb</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" id="climb-3" name="climb" class="custom-control-input">
+      <label class="custom-control-label" for="climb-3">Did Not Attempt</label>
+    </div>
+    <br>
+    <div class="custom-control custom-checkbox">
+      <input class="custom-control-input" type="checkbox" value="" id="lifted">
+      <label class="custom-control-label" for="lifted">
+        Lifted Others
+      </label>
+    </div>
+    <div class="custom-control custom-checkbox">
+      <input class="custom-control-input" type="checkbox" value="" id="carried">
+      <label class="custom-control-label" for="carried">
+        Carried by Others
+      </label>
+    </div>
+    <br>
+    <div class="custom-control custom-checkbox">
+      <input class="custom-control-input" type="checkbox" value="" id="parked">
+      <label class="custom-control-label" for="parked">
+        Parked
+      </label>
+    </div>
+    
+    <br>
+
+    <h5>
+      Comments:
+    </h5>
+    <div class="input-group">
+      <textarea class="form-control" placeholder="Comments..."></textarea>
+    </div>
+
+    <br>
+
+    <button class="btn btn-block btn-primary">Submit</button>
+
+    <br>
 
   </div>
   
