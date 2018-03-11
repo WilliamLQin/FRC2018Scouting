@@ -1,10 +1,21 @@
+html {
+  width: 100vw;
+}
+
 .vertical-center {
-  min-height: 95%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 95vh; /* These two lines are counted as one :-)       */
+  min-height: calc(100% - 58px);  /* Fallback for browsers do NOT support vh unit */
+  min-height: calc(100vh - 58px); /* These two lines are counted as one :-)       */
 
   display: flex;
   align-items: center;
 }
+body {
+  background-color: inherit;
+  /* color: #212121; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 img {
   display: block;
   width: auto;
