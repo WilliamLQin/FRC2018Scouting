@@ -4,15 +4,15 @@
 <head>
   <title>Input Match Data</title>
 
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 
@@ -26,7 +26,7 @@
 
   <script src="/core/fireinit.js"></script>
   
-  <!-- <script src="/js/data_entry.js"></script> -->
+  <script src="/js/data_entry.js"></script>
 
   <div class="container">
     <br>
@@ -38,13 +38,13 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Team #</span>
       </div>
-      <input id="team-number" type="number" class="form-control" placeholder="Number...">
+      <input id="team" type="number" class="form-control" placeholder="Number...">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Match #</span>
       </div>
-      <input id="match-number" type="number" class="form-control" placeholder="Number...">
+      <input id="matchnumber" type="number" class="form-control" placeholder="Number...">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -57,14 +57,14 @@
       Starting Position:
     </h5>
     <div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-outline-secondary active">
-        <input type="radio" name="startingpos" id="option1" autocomplete="off" value="left" checked>&nbsp;&nbsp;Left&nbsp;&nbsp;
+      <label id="startingpos" class="btn btn-outline-secondary" value="left">
+        <input type="radio" name="startingpos" id="option1" autocomplete="off">&nbsp;&nbsp;Left&nbsp;&nbsp;
       </label>
-      <label class="btn btn-outline-secondary">
-        <input type="radio" name="startingpos" id="option2" autocomplete="off" value="center">Center
+      <label id="startingpos" class="btn btn-outline-secondary" value="center">
+        <input type="radio" name="startingpos" id="option2" autocomplete="off">Center
       </label>
-      <label class="btn btn-outline-secondary">
-        <input type="radio" name="startingpos" id="option3" autocomplete="off" value="right">&nbsp;Right&nbsp;
+      <label id="startingpos" class="btn btn-outline-secondary" value="right">
+        <input type="radio" name="startingpos" id="option3" autocomplete="off">&nbsp;Right&nbsp;
       </label>
     </div>
 
@@ -77,11 +77,11 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Plate 1</span>
       </div>
-      <label class="btn btn-outline-secondary active">
-        <input type="radio" name="plate1" id="option1" autocomplete="off" checked>&nbsp;&nbsp;Left&nbsp;&nbsp;
+      <label id="plate-1" class="btn btn-outline-secondary" value="L">
+        <input type="radio" name="plate-1" id="option1" autocomplete="off">&nbsp;&nbsp;Left&nbsp;&nbsp;
       </label>
-      <label class="btn btn-outline-secondary">
-        <input type="radio" name="plate1" id="option2" autocomplete="off">&nbsp;Right&nbsp;
+      <label id="plate-1" class="btn btn-outline-secondary" value="R">
+        <input type="radio" name="plate-1" id="option2" autocomplete="off">&nbsp;Right&nbsp;
       </label>
     </div>
     <br>
@@ -89,11 +89,11 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Plate 2</span>
       </div>
-      <label class="btn btn-outline-secondary active">
-        <input type="radio" name="plate2" id="option1" autocomplete="off" checked>&nbsp;&nbsp;Left&nbsp;&nbsp;
+      <label id="plate-2" class="btn btn-outline-secondary" value="L">
+        <input type="radio" name="plate-2" id="option1" autocomplete="off">&nbsp;&nbsp;Left&nbsp;&nbsp;
       </label>
-      <label class="btn btn-outline-secondary">
-        <input type="radio" name="plate2" id="option2" autocomplete="off">&nbsp;Right&nbsp;
+      <label id="plate-2" class="btn btn-outline-secondary" value="R">
+        <input type="radio" name="plate-2" id="option2" autocomplete="off">&nbsp;Right&nbsp;
       </label>
     </div>
     <br>
@@ -101,11 +101,11 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Plate 3</span>
       </div>
-      <label class="btn btn-outline-secondary active">
-        <input type="radio" name="plate3" id="option1" autocomplete="off" checked>&nbsp;&nbsp;Left&nbsp;&nbsp;
+      <label id="plate-3" class="btn btn-outline-secondary" value="L">
+        <input type="radio" name="plate-3" id="option1" autocomplete="off">&nbsp;&nbsp;Left&nbsp;&nbsp;
       </label>
-      <label class="btn btn-outline-secondary">
-        <input type="radio" name="plate3" id="option2" autocomplete="off">&nbsp;Right&nbsp;
+      <label id="plate-3" class="btn btn-outline-secondary" value="R">
+        <input type="radio" name="plate-3" id="option2" autocomplete="off">&nbsp;Right&nbsp;
       </label>
     </div>
 
@@ -243,16 +243,17 @@
       Comments:
     </h5>
     <div class="input-group">
-      <textarea class="form-control" placeholder="Comments..."></textarea>
+      <textarea id="comment" class="form-control" placeholder="Comments..."></textarea>
     </div>
 
     <br>
 
     <button class="btn btn-block btn-primary" onclick="submitData()">Submit</button>
 
-    <br>
-
     <div id="uploading"></div>
+
+    <br>
+    <br>
 
   </div>
   

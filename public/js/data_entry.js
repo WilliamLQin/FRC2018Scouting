@@ -1,20 +1,70 @@
-$(document).ready(function() {
-    
-    const db = firebase.database().ref('allteams/');
-
-});
-
-
 function submitData() {
 
-    
+    $('#uploading').html("");
+
+    if (inputVerification()) {
+
+        pushData();
+
+    }
 
 }
 
 function inputVerification() {
-    
+
+    var check = true;
+
+    if (isNaN(parseInt($('#team').val()))) {
+        $('#uploading').html($('#uploading').html() + "<br>Please enter a team number as an integer.");
+        check = false;
+    }
+
+    if (isNaN(parseInt($('#matchnumber').val()))) {
+        $('#uploading').html($('#uploading').html() + "<br>Please enter a match number as an integer.");
+        check = false;
+    }
+
+    if (typeof $('label#startingpos.active').attr('value') == "undefined") {
+        $('#uploading').html($('#uploading').html() + "<br>Please select a value for starting position.");
+        check = false;
+    }
+
+    if (typeof $('label#plate-1.active').attr('value') == "undefined") {
+        $('#uploading').html($('#uploading').html() + "<br>Please select a value for plate 1.");
+        check = false;
+    }
+
+    if (typeof $('label#plate-2.active').attr('value') == "undefined") {
+        $('#uploading').html($('#uploading').html() + "<br>Please select a value for plate 2.");
+        check = false;
+    }
+
+    if (typeof $('label#plate-3.active').attr('value') == "undefined") {
+        $('#uploading').html($('#uploading').html() + "<br>Please select a value for plate 3.");
+        check = false;
+    }
+
+    return check;
 }
 
+
+function pushData() {
+
+    var team = $('#team').val();
+
+    $('#uploading').html($('#uploading').html() + "<br>Uploading...");
+
+    firebase.database().ref('matches/' + team).push().set({
+        match_number: $('#matchnumber').val(),
+        match_scouter: $('#scouter').val() == "" ? "-" : $('#scouter').val(),
+        match_comment: $('#comment').val() == "" ? "-" : $('#comment').val(),
+        match_startpos: $('label#startingpos.active').attr('value'),
+        match_plates: $('label#plate-1.active').attr('value') + $('label#plate-2.active').attr('value') + $('label#plate-3.active').attr('value')
+    }).then(function(done) {
+        $('#uploading').html($('#uploading').html() + "<br>Done publishing data!");
+    });
+
+}
 
 
 function updateDatabase() {
