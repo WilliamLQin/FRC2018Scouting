@@ -1,10 +1,13 @@
+var publishing = false;
+
 function submitData() {
 
     $('#uploading').html("");
 
-    if (inputVerification()) {
+    if (inputVerification() && !publishing) {
 
         pushData();
+        publishing = true;
 
     }
 
@@ -15,12 +18,12 @@ function inputVerification() {
     var check = true;
 
     if (isNaN(parseInt($('#team').val()))) {
-        $('#uploading').html($('#uploading').html() + "<br>Please enter a team number as an integer.");
+        $('#uploading').html($('#uploading').html() + "<br>Please enter a team number.");
         check = false;
     }
 
     if (isNaN(parseInt($('#matchnumber').val()))) {
-        $('#uploading').html($('#uploading').html() + "<br>Please enter a match number as an integer.");
+        $('#uploading').html($('#uploading').html() + "<br>Please enter a match number.");
         check = false;
     }
 
@@ -29,39 +32,68 @@ function inputVerification() {
         check = false;
     }
 
-    if (typeof $('label#plate-1.active').attr('value') == "undefined") {
+    if (typeof $('label#plate_1.active').attr('value') == "undefined") {
         $('#uploading').html($('#uploading').html() + "<br>Please select a value for plate 1.");
         check = false;
     }
 
-    if (typeof $('label#plate-2.active').attr('value') == "undefined") {
+    if (typeof $('label#plate_2.active').attr('value') == "undefined") {
         $('#uploading').html($('#uploading').html() + "<br>Please select a value for plate 2.");
         check = false;
     }
 
-    if (typeof $('label#plate-3.active').attr('value') == "undefined") {
+    if (typeof $('label#plate_3.active').attr('value') == "undefined") {
         $('#uploading').html($('#uploading').html() + "<br>Please select a value for plate 3.");
         check = false;
     }
 
+    if (isNaN(parseInt($('label#reachline.active').attr('value')))) {
+        $('#uploading').html($('#uploading').html() + "<br>Please select a value for reach line.");
+        check = false;
+    }
+
+    check = checkNumberField("auto_switch_score") && check;
+    check = checkNumberField("auto_switch_miss") && check;
+    check = checkNumberField("auto_scale_score") && check;
+    check = checkNumberField("auto_scale_miss") && check;
+
     return check;
+}
+
+function checkNumberField(fieldID) {
+
+    var fieldName = fieldID.replace(/_/g, " ");
+
+    if (isNaN(parseInt($("#" + fieldID).val()))) {
+        $('#uploading').html($('#uploading').html() + "<br>Please enter a number for " + fieldName + ".");
+        return false;
+    }
+
+    return true;
+
 }
 
 
 function pushData() {
 
-    var team = $('#team').val();
+    var team = parseInt($('#team').val());
 
     $('#uploading').html($('#uploading').html() + "<br>Uploading...");
 
     firebase.database().ref('matches/' + team).push().set({
-        match_number: $('#matchnumber').val(),
+        match_number: parseInt($('#matchnumber').val()),
         match_scouter: $('#scouter').val() == "" ? "-" : $('#scouter').val(),
         match_comment: $('#comment').val() == "" ? "-" : $('#comment').val(),
         match_startpos: $('label#startingpos.active').attr('value'),
-        match_plates: $('label#plate-1.active').attr('value') + $('label#plate-2.active').attr('value') + $('label#plate-3.active').attr('value')
+        match_plates: $('label#plate_1.active').attr('value') + $('label#plate_2.active').attr('value') + $('label#plate_3.active').attr('value'),
+        auto_reachline: parseInt($('label#reachline.active').attr('value')),
+        auto_switch_score: parseInt($('#auto_switch_score').val()),
+        auto_switch_miss: parseInt($('#auto_switch_miss').val()),
+        auto_scale_score: parseInt($('#auto_scale_score').val()),
+        auto_scale_miss: parseInt($('#auto_scale_miss').val())
     }).then(function(done) {
         $('#uploading').html($('#uploading').html() + "<br>Done publishing data!");
+        window.location.reload(false);
     });
 
 }
