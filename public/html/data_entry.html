@@ -160,43 +160,43 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Alliance Switch Scored</span>
       </div>
-      <input type="number" class="form-control" placeholder="Number...">
+      <input id="teleop_switch_score" type="number" class="form-control" placeholder="Number...">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Alliance Switch Missed</span>
       </div>
-      <input type="number" class="form-control" placeholder="Number...">
+      <input id="teleop_switch_miss" type="number" class="form-control" placeholder="Number...">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Scale Scored</span>
       </div>
-      <input type="number" class="form-control" placeholder="Number...">
+      <input id="teleop_scale_score" type="number" class="form-control" placeholder="Number...">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Scale Missed</span>
       </div>
-      <input type="number" class="form-control" placeholder="Number...">
+      <input id="teleop_scale_miss" type="number" class="form-control" placeholder="Number...">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Opp. Switch Scored</span>
       </div>
-      <input type="number" class="form-control" placeholder="Number...">
+      <input id="teleop_oppswitch_score" type="number" class="form-control" placeholder="Number...">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Opp. Switch Missed</span>
       </div>
-      <input type="number" class="form-control" placeholder="Number...">
+      <input id="teleop_oppswitch_miss" type="number" class="form-control" placeholder="Number...">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Vault</span>
       </div>
-      <input type="number" class="form-control" placeholder="Number...">
+      <input id="teleop_vault" type="number" class="form-control" placeholder="Number...">
     </div>
 
     <br>
@@ -205,33 +205,33 @@
       Climb:
     </h5>
     <div class="custom-control custom-radio">
-      <input type="radio" id="climb-1" name="climb" class="custom-control-input">
+      <input type="radio" id="climb-1" name="climb" class="custom-control-input" value="self">
       <label class="custom-control-label" for="climb-1">Self Climb</label>
     </div>
     <div class="custom-control custom-radio">
-      <input type="radio" id="climb-2" name="climb" class="custom-control-input">
+      <input type="radio" id="climb-2" name="climb" class="custom-control-input" value="fail">
       <label class="custom-control-label" for="climb-2">Failed Climb</label>
     </div>
     <div class="custom-control custom-radio">
-      <input type="radio" id="climb-3" name="climb" class="custom-control-input">
+      <input type="radio" id="climb-3" name="climb" class="custom-control-input" value="n/a">
       <label class="custom-control-label" for="climb-3">Did Not Attempt</label>
     </div>
     <br>
     <div class="custom-control custom-checkbox">
-      <input class="custom-control-input" type="checkbox" value="" id="lifted">
+      <input class="custom-control-input" type="checkbox" id="lifted">
       <label class="custom-control-label" for="lifted">
         Lifted Others
       </label>
     </div>
     <div class="custom-control custom-checkbox">
-      <input class="custom-control-input" type="checkbox" value="" id="carried">
+      <input class="custom-control-input" type="checkbox" id="carried">
       <label class="custom-control-label" for="carried">
         Carried by Others
       </label>
     </div>
     <br>
     <div class="custom-control custom-checkbox">
-      <input class="custom-control-input" type="checkbox" value="" id="parked">
+      <input class="custom-control-input" type="checkbox" id="parked">
       <label class="custom-control-label" for="parked">
         Parked
       </label>
