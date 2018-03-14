@@ -26,7 +26,63 @@
   <div w3-include-html="/core/nav.html"></div>
   <script>w3IncludeHTML();</script>
 
-  <div class="jumbotron vertical-center" id="team-input" style="margin-bottom:0px">
+  <script src="/core/fireinit.js"></script>
+  <script src="/js/team_search.js"></script>
+
+  <div class="container">
+    <br>
+    <h1>
+      Team Search!
+    </h1>
+    <br>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Team #</span>
+      </div>
+      <input id="team" type="number" class="form-control" placeholder="Number...">
+    </div>
+    <button class="btn btn-block btn-primary" onclick="loadTeam()">Load Team</button>
+    <br>
+    <div class="dropdown block">
+      <button id="menu" class="btn btn-block btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+        Select View
+      </button>
+      <div class="dropdown-menu" style="right: 0">
+        <button id="tab-stats" type="button" class="dropdown-item">Statistics</button>
+        <button id="tab-statsgraphs" type="button" class="dropdown-item">Statistics Graphs</button>
+        <button id="tab-matches" type="button" class="dropdown-item">Match History</button>
+        <button id="tab-matchesgraphs" type="button" class="dropdown-item">Match History Graphs</button>
+        <button id="tab-insights" type="button" class="dropdown-item">Insights</button>
+      </div>
+    </div>
+    <br>
+
+    <div id="section-tab-stats">
+      stats
+    </div>
+
+    <div id="section-tab-statsgraphs">
+      statsgraphs
+    </div>
+
+    <div id="section-tab-matches">
+      matches
+    </div>
+
+    <div id="section-tab-matchesgraphs">
+      matchesgraphs
+    </div>
+
+    <div id="section-tab-insights">
+      insights
+    </div>
+
+  </div>
+
+
+
+
+  <!-- <div class="jumbotron vertical-center" id="team-input" style="margin-bottom:0px">
     <div class="container text-center">
       <h1>Team Search!</h1>
       <div class="form-group">
@@ -85,23 +141,6 @@
       </ul>
     </div>
 
-<!--     <br>
-
-    <button class="btn btn-block btn-default" data-toggle="collapse" data-target="#tablerobot">Robot Table</button>
-    <div id="tablerobot" class="collapse in">
-      <ul class="list-group row" style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px">
-        <li class="list-group-item col-xs-2 list-group-item-danger">Match #</li>
-        <li class="list-group-item col-xs-2 list-group-item-success">Defense</li>
-        <li class="list-group-item col-xs-2 list-group-item-success">Hopperdump</li>
-        <li class="list-group-item col-xs-2 list-group-item-success">Intake</li>
-        <li class="list-group-item col-xs-2 list-group-item-success">Fouls</li>
-        <li class="list-group-item col-xs-2 list-group-item-success">-</li>
-      </ul>
-      <ul id="table_robot" class="list-group row" style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px">
-
-      </ul>
-    </div> -->
-
     <br>
     <button class="btn btn-block btn-default" data-toggle="collapse" data-target="#statistics">Statistics</button>
     <div id="statistics" class="collapse in">
@@ -129,48 +168,10 @@
         <li class="list-group-item col-xs-6">Climb</li>
         <li id="stat_teleop_climb" class="list-group-item col-xs-6">{}</li>
       </ul>
-      <!-- <ul class="list-group row" style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px">
-        <li class="list-group-item col-xs-6 list-group-item-success">Robot</li>
-        <li class="list-group-item col-xs-6 list-group-item-success">Yes:No</li>
-        <li class="list-group-item col-xs-6">Defense Bot</li>
-        <li id="stat_defense" class="list-group-item col-xs-6">{} : {}</li>
-        <li class="list-group-item col-xs-6">Hopper Self Dump</li>
-        <li id="stat_hopperdump" class="list-group-item col-xs-6">{} : {}</li>
-        <li class="list-group-item col-xs-6">Can Intake</li>
-        <li id="stat_intake" class="list-group-item col-xs-6">{} : {}</li>
-        <li class="list-group-item col-xs-6">Fouls</li>
-        <li id="stat_fouls" class="list-group-item col-xs-6">Fouled {}</li>
-      </ul> -->
-      <!-- <ul class="list-group row" style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px">
-        <li class="list-group-item col-xs-6 list-group-item-danger">Overall</li>
-        <li class="list-group-item col-xs-6 list-group-item-danger">Total Average</li>
-        <li class="list-group-item col-xs-6">Score Contribution</li>
-        <li id="stat_score" class="list-group-item col-xs-6">{}</li>
-        <li class="list-group-item col-xs-6">Gears</li>
-        <li id="stat_gears" class="list-group-item col-xs-6">{}</li>
-        <li class="list-group-item col-xs-6">kPa</li>
-        <li id="stat_kpa" class="list-group-item col-xs-6">{}</li>
-        <li class="list-group-item col-xs-6">Consistency</li>
-        <li id="stat_consistency" class="list-group-item col-xs-6">{}%</li>
-        <li class="list-group-item col-xs-6">Auto Gear Accuracy</li>
-        <li id="stat_auto_gearacc" class="list-group-item col-xs-6">{}%</li>
-        <li class="list-group-item col-xs-6">Teleop Gear Accuracy</li>
-        <li id="stat_teleop_gearacc" class="list-group-item col-xs-6">{}%</li>
-        <li class="list-group-item col-xs-6">High Goal Accuracy</li>
-        <li id="stat_high_scoreacc" class="list-group-item col-xs-6">{}%</li>
-        <li class="list-group-item col-xs-6">Low Goal Accuracy</li>
-        <li id="stat_low_scoreacc" class="list-group-item col-xs-6">{}%</li>
-        <li class="list-group-item col-xs-6">Climb Frequency</li>
-        <li id="stat_climbacc" class="list-group-item col-xs-6">{}%</li>
-        <li class="list-group-item col-xs-6">Reach Line Frequency</li>
-        <li id="stat_reachlineacc" class="list-group-item col-xs-6">{}%</li>
-      </ul> -->
     </div>
 
-  </div>
+  </div> -->
 
-  <script src="/js/fireinit.js"></script>
-  <script src="/js/team_search.js"></script>
 
 </body>
 

@@ -1,7 +1,31 @@
 const db = firebase.database();
 
-const storage = firebase.storage();
-const storageRef = storage.ref();
+$(document).ready(function() {
+
+  hideAll();
+
+  $("#section-stats").show();
+
+  $("button[id^=tab]").click(function() {
+
+    hideAll();
+
+    $("#section-" + $(this).attr("id")).show();
+    $("#menu").text($(this).text());
+    
+  });
+
+});
+
+function hideAll() {
+  $("#section-tab-stats").hide();
+  $("#section-tab-statsgraphs").hide();
+  $("#section-tab-matches").hide();
+  $("#section-tab-matchesgraphs").hide();
+  $("#section-tab-insights").hide();
+}
+
+
 
 var team = 0;
 var matchCount = 0;
