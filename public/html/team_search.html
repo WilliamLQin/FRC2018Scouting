@@ -19,6 +19,8 @@
 
   <script src="https://www.w3schools.com/lib/w3data.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/4.0.0/math.js"></script>
+
 </head>
 
 <body>
@@ -28,6 +30,7 @@
 
   <script src="/core/fireinit.js"></script>
   <script src="/js/team_search.js"></script>
+  <script src="/js/team_search_stats.js"></script>
   <script src="/js/team_search_matchhistory.js"></script>
 
   <div class="container">
@@ -62,7 +65,25 @@
     <br>
 
     <div id="section-tab-stats" style="display: none">
-      stats
+      <br>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Stat</th>
+              <th scope="col">Median</th>
+              <th scope="col">IQR</th>
+              <th scope="col">Mean</th>
+              <th scope="col">ST Dev</th>
+              <th scope="col">Range</th>
+            </tr>
+          </thead>
+          <tbody id="stats_table">
+
+          </tbody>
+        </table>
+      </div>
+
     </div>
 
     <div id="section-tab-statsgraphs" style="display: none">
@@ -70,6 +91,11 @@
     </div>
 
     <div id="section-tab-matches" style="display: none">
+      <br>
+      <p>
+        (x) denotes missed.
+      </p>
+      <br>
       <div class="table-responsive">
         <h4>
           Autonomous Table

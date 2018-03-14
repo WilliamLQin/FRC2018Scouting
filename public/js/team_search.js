@@ -46,7 +46,7 @@ function retrieveData() {
 
     if (snap.exists()) {
 
-      $("#alerts").html("Viewing data for team: " + team + "<br>(x) denotes missed.");
+      $("#alerts").html("Viewing data for team: " + team);
 
       data = {};
 
@@ -55,6 +55,7 @@ function retrieveData() {
       });
 
       // Matches have been retrieved
+      populateStats();
       populateMatchHistory();
 
     }
