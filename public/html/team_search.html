@@ -34,6 +34,9 @@
     <h1>
       Team Search!
     </h1>
+    <p id="alerts">
+      Select a team, and view their data!
+    </p>
     <br>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -57,23 +60,60 @@
     </div>
     <br>
 
-    <div id="section-tab-stats">
+    <div id="section-tab-stats" style="display: none">
       stats
     </div>
 
-    <div id="section-tab-statsgraphs">
+    <div id="section-tab-statsgraphs" style="display: none">
       statsgraphs
     </div>
 
-    <div id="section-tab-matches">
-      matches
+    <div id="section-tab-matches" style="display: none">
+      <div class="table-responsive">
+        <h4>
+          Autonomous Table
+        </h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Match #</th>
+              <th scope="col">Switch</th>
+              <th scope="col">Scale</th>
+              <th scope="col">Reach Line</th>
+            </tr>
+          </thead>
+          <tbody id="auto_table">
+
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div class="table-responsive">
+        <h4>
+          Teleoperated Table
+        </h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Match #</th>
+              <th scope="col">Switch</th>
+              <th scope="col">Scale</th>
+              <th scope="col">Opp. Switch</th>
+              <th scope="col">Vault</th>
+            </tr>
+          </thead>
+          <tbody id="teleop_table">
+
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div id="section-tab-matchesgraphs">
+    <div id="section-tab-matchesgraphs" style="display: none">
       matchesgraphs
     </div>
 
-    <div id="section-tab-insights">
+    <div id="section-tab-insights" style="display: none">
       insights
     </div>
 
