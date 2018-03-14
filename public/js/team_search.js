@@ -46,7 +46,7 @@ function retrieveData() {
 
     if (snap.exists()) {
 
-      $("#alerts").text("Viewing data for team: " + team);
+      $("#alerts").html("Viewing data for team: " + team + "<br>(x) denotes missed.");
 
       data = {};
 

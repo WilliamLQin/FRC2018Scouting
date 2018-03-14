@@ -2,6 +2,7 @@ function populateMatchHistory() {
     matchHistoryAuto();
     matchHistoryTeleop();
     matchHistoryMisc();
+    matchHistoryComments();
 }
 
 function matchHistoryAuto() {
@@ -64,6 +65,23 @@ function matchHistoryMisc() {
         row.append($('<td></td>').text(climb));
 
         $('#misc_table').append(row);
+
+    }
+
+}
+
+function matchHistoryComments() {
+
+    $('#comment_table').html("");
+
+    for (i = 0; i < data.match_number.length; i++) {
+
+        var row = $('<tr></tr>');
+
+        row.append($('<th scope="row"></th>').text(data.match_number[i]));
+        row.append($('<td></td>').text(data.match_comment[i]));
+
+        $('#comment_table').append(row);
 
     }
 
