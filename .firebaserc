@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "dev-first-powerup-compiler"
+    "default": "dev-first-powerup-compiler",
+    "prod": "first-powerup-compiler"
   }
 }
