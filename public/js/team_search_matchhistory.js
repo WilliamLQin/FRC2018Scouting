@@ -54,6 +54,7 @@ function matchHistoryMisc() {
 
         row.append($('<th scope="row"></th>').text(data.match_number[i]));
         row.append($('<td></td>').text(data.match_startpos[i][0].toUpperCase() + data.match_startpos[i].substring(1)));
+        row.append($('<td></td>').text(data.match_alliance[i][0].toUpperCase() + data.match_alliance[i].substring(1)));
         row.append($('<td></td>').text(data.match_plates[i]));
 
         var climb = "";
@@ -79,6 +80,7 @@ function matchHistoryComments() {
         var row = $('<tr></tr>');
 
         row.append($('<th scope="row"></th>').text(data.match_number[i]));
+        row.append($('<td></td>').text(data.match_scouter[i]));
         row.append($('<td></td>').text(data.match_comment[i]));
 
         $('#comment_table').append(row);

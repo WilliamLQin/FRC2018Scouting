@@ -26,14 +26,115 @@
   <div w3-include-html="/core/nav.html"></div>
   <script>w3IncludeHTML();</script>
 
-  <br>
+  <script src="/core/fireinit.js"></script>
+  <script src="/js/match_search.js"></script>
 
   <div class="container">
-    <ul id="allmatches" class="list-group"></ul>
+    <br>
+    <h1>
+      Match Search!
+    </h1>
+    <p id="alerts">
+      Select a match, and view the data from the match!
+    </p>
+    <br>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Match #</span>
+      </div>
+      <input id="match" type="number" class="form-control" placeholder="Number...">
+    </div>
+    <button class="btn btn-block btn-primary" onclick="loadMatch()">Load Match</button>
+
+    <div id="section-tab-matches" style="display: none">
+      <br>
+      <p>
+        (x) denotes missed.
+      </p>
+      <br>
+      <div class="table-responsive">
+        <h4>
+          Autonomous Table
+        </h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Team</th>
+              <th scope="col">Switch</th>
+              <th scope="col">Scale</th>
+              <th scope="col">Reach Line</th>
+            </tr>
+          </thead>
+          <tbody id="auto_table">
+
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div class="table-responsive">
+        <h4>
+          Teleoperated Table
+        </h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Team</th>
+              <th scope="col">Switch</th>
+              <th scope="col">Scale</th>
+              <th scope="col">Opp. Switch</th>
+              <th scope="col">Vault</th>
+            </tr>
+          </thead>
+          <tbody id="teleop_table">
+
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div class="table-responsive">
+        <h4>
+          Misc. Table
+        </h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Team</th>
+              <th scope="col">Start</th>
+              <th scope="col">Alliance</th>
+              <th scope="col">Plates</th>
+              <th scope="col">Climb</th>
+            </tr>
+          </thead>
+          <tbody id="misc_table">
+
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div class="table-responsive">
+        <h4>
+          Comment Table
+        </h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Team</th>
+              <th scope="col">Scouter</th>
+              <th scope="col">Comment</th>
+            </tr>
+          </thead>
+          <tbody id="comment_table">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
   </div>
 
-  <script src="/core/fireinit.js"></script>
-  <script src="/js/raw_data.js"></script>
+
+  
 
 </body>
 
