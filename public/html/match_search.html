@@ -3,7 +3,7 @@
 <html>
 
 <head>
-  <title>Viewer Portal</title>
+  <title>Raw Data</title>
 
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -23,33 +23,17 @@
 
 <body>
 
-
   <div w3-include-html="/core/nav.html"></div>
   <script>w3IncludeHTML();</script>
 
-  <div class="jumbotron vertical-center" style="margin-bottom:0px">
-    <div class="container text-center">
-      <h1>View data in many different ways!</h1>
-      <br>
-      <a href="/html/raw_data.html" class="btn btn-lg btn-success btn-block" role="button">
-        Raw Data
-      </a>
-      <br>
-      <a href="/html/match_search.html" class="btn btn-lg btn-danger btn-block" role="button">
-        Match Search
-      </a>
-      <br>
-      <a href="/html/team_search.html" class="btn btn-lg btn-warning btn-block" role="button">
-        Team Search
-      </a>
-      <br>
-      <a href="/html/rankings.html" class="btn btn-lg btn-info btn-block" role="button">
-        Rankings
-      </a>
-    </div>
+  <br>
+
+  <div class="container">
+    <ul id="allmatches" class="list-group"></ul>
   </div>
 
-  <script src="/js/fireinit.js"></script>
+  <script src="/core/fireinit.js"></script>
+  <script src="/js/raw_data.js"></script>
 
 </body>
 

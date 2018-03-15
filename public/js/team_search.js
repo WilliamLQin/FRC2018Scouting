@@ -42,7 +42,7 @@ function loadTeam() {
 }
 
 function retrieveData() {
-  db.ref("matches/" + team).on('value', function(snap){
+  db.ref("teams/" + team).on('value', function(snap){
 
     if (snap.exists()) {
 

@@ -1,4 +1,4 @@
-const dbTeamsList = firebase.database().ref('matches');
+const dbTeamsList = firebase.database().ref('teams');
 
 // for each team
 dbTeamsList.on('child_added', snap => {

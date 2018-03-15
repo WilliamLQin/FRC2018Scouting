@@ -35,6 +35,11 @@ function inputVerification() {
         check = false;
     }
 
+    if (typeof $('label#alliance.active').attr('value') == "undefined") {
+        $('#uploading').html($('#uploading').html() + "<br>Please select a value for alliance.");
+        check = false;
+    }
+
     if (typeof $('label#plate_1.active').attr('value') == "undefined") {
         $('#uploading').html($('#uploading').html() + "<br>Please select a value for plate 1.");
         check = false;
@@ -93,14 +98,19 @@ function checkNumberField(fieldID) {
 function pushData() {
 
     var team = parseInt($('#team').val());
+    var matchno = parseInt($('#matchnumber').val());
 
     $('#uploading').html($('#uploading').html() + "<br>Uploading...");
 
-    firebase.database().ref('matches/' + team).push().set({
-        match_number: parseInt($('#matchnumber').val()),
+    var match = firebase.database().ref('teams/' + team).push();
+    
+    match.set({
+
+        match_number: matchno,
         match_scouter: $('#scouter').val() == "" ? "-" : $('#scouter').val(),
         match_comment: $('#comment').val() == "" ? "-" : $('#comment').val(),
         match_startpos: $('label#startingpos.active').attr('value'),
+        match_alliance: $('label#alliance.active').attr('value'),
         match_plates: $('label#plate_1.active').attr('value') + $('label#plate_2.active').attr('value') + $('label#plate_3.active').attr('value'),
 
         auto_reachline: parseInt($('label#reachline.active').attr('value')),
@@ -126,18 +136,26 @@ function pushData() {
 
         $('#uploading').html($('#uploading').html() + "<br>Done publishing data!");
 
-        firebase.database().ref('teams/' + team).set({
-            
-            team: team,
-            stats_updated: false
+        var updates = {};
+        updates[team] = match.key;
 
-        }).then(function(){
-            
-            $('#uploading').html($('#uploading').html() + "<br>Team registered in database!");
+        firebase.database().ref('matches/' + matchno).update(updates).then(function() {
 
-            window.location.reload(false);
+            firebase.database().ref('meta_teams/' + team).set({
+            
+                team: team,
+                stats_updated: false
+    
+            }).then(function(){
+                
+                $('#uploading').html($('#uploading').html() + "<br>Team registered in database!");
+    
+                window.location.reload(false);
+    
+            });
 
         });
+
     });
 
 }
