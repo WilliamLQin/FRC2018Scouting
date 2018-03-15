@@ -59,6 +59,7 @@ function parseTeam(teamsnap) {
 
 function clearAllTables() {
 
+    $('#overall_table').html("");
     $('#auto_table').html("");
     $('#teleop_table').html("");
     $('#misc_table').html("");
@@ -67,6 +68,16 @@ function clearAllTables() {
 }
 
 function addTeamToTable(data, team) {
+
+    // Overall Cubes Table
+
+    var row = $('<tr></tr>');
+
+    row.append($('<th scope="row"></th>').text(team));
+    row.append($('<td></td>').text(data.overall_auto_score + " (" + data.overall_auto_miss + ")"));
+    row.append($('<td></td>').text(data.overall_teleop_score + " (" + data.overall_teleop_miss + ")"));
+
+    $('#overall_table').append(row);
 
     // Auto Table
 

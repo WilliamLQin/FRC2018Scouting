@@ -132,9 +132,10 @@ function pushData() {
         climb_carried: $('#carried').prop('checked'),
         climb_parked: $('#parked').prop('checked'),
 
-        overall_teleop_cubes_used: parseInt($('#teleop_switch_score').val()) + parseInt($('#teleop_scale_score').val()) + parseInt($('#teleop_oppswitch_score').val()) + parseInt($('#teleop_vault').val()),
-        overall_teleop_cubes_missed: parseInt($('#teleop_switch_miss').val()) + parseInt($('#teleop_scale_miss').val()) + parseInt($('#teleop_oppswitch_miss').val()),
-        overall_auto_cubes: parseInt($('#auto_switch_score').val()) + parseInt($('#auto_switch_miss').val()) + parseInt($('#auto_scale_score').val()) + parseInt($('#auto_scale_miss').val())
+        overall_teleop_score: parseInt($('#teleop_switch_score').val()) + parseInt($('#teleop_scale_score').val()) + parseInt($('#teleop_oppswitch_score').val()) + parseInt($('#teleop_vault').val()),
+        overall_teleop_miss: parseInt($('#teleop_switch_miss').val()) + parseInt($('#teleop_scale_miss').val()) + parseInt($('#teleop_oppswitch_miss').val()),
+        overall_auto_score: parseInt($('#auto_switch_score').val()) + parseInt($('#auto_scale_score').val()),
+        overall_auto_miss: parseInt($('#auto_switch_miss').val()) + parseInt($('#auto_scale_miss').val())
 
     }).then(function(done) {
 

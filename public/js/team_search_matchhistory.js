@@ -1,8 +1,27 @@
 function populateMatchHistory() {
+    matchHistoryOverall();
     matchHistoryAuto();
     matchHistoryTeleop();
     matchHistoryMisc();
     matchHistoryComments();
+}
+
+function matchHistoryOverall() {
+
+    $('#overall_table').html("");
+
+    for (i = 0; i < data.match_number.length; i++) {
+
+        var row = $('<tr></tr>');
+
+        row.append($('<th scope="row"></th>').text(data.match_number[i]));
+        row.append($('<td></td>').text(data.overall_auto_score[i] + " (" + data.overall_auto_miss[i] + ")"));
+        row.append($('<td></td>').text(data.overall_teleop_score[i] + " (" + data.overall_teleop_miss[i] + ")"));
+
+        $('#overall_table').append(row);
+
+    }
+
 }
 
 function matchHistoryAuto() {
